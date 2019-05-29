@@ -1,9 +1,9 @@
+#include <chrono>
 #include <iostream>
 #include <map>
 #include <string>
 #include <thread>
 #include <vector>
-#include <chrono>
 
 std::map<std::string, int> myMap;
 std::vector<std::thread> threadList;
@@ -23,23 +23,24 @@ std::thread createThread(const std::string &key)
         {
             myMap.emplace(key, 1);
         }
+
+        // std::cout << "> Result: apple = " << myMap["apple"] << ", potato = " << myMap["potato"] << " - " << key << std::endl;
     });
 }
 
 int main(int argc, char *argv[])
 {
-    int maxThreads = 1000;
-    int maxThreadsHalf = (maxThreads / 2);
+    int maxThreads = 500;
 
-    for (int x = 0; x < maxThreadsHalf; x++)
+    for (int x = 0; x < maxThreads; x++)
     {
         threadList.push_back(createThread("potato"));
         threadList.push_back(createThread("apple"));
     }
 
-    for (int x = 0; x < maxThreads; x++)
+    for (auto &thread : threadList)
     {
-        threadList[x].join();
+        thread.join();
     }
 
     std::cout << "> Result: apple = " << myMap["apple"] << ", potato = " << myMap["potato"] << std::endl;

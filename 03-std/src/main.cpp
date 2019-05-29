@@ -1,30 +1,30 @@
+#include <chrono>
 #include <iostream>
 #include <map>
 #include <string>
 #include <thread>
 #include <vector>
 
-#include "safe/lockable.h"
-
-safe::Lockable<std::map<std::string, int>> myMap;
+std::map<std::string, int> myMap;
 std::vector<std::thread> threadList;
+std::mutex myMapMutex;
 
 std::thread createThread(const std::string &key)
 {
     return std::thread([&]() {
-        safe::WriteAccess<safe::Lockable<std::map<std::string, int>>> myMapAccess(myMap);
+        std::lock_guard<std::mutex> lock(myMapMutex);
 
-        auto const findIter = (*myMapAccess).find(key);
+        auto const findIter = myMap.find(key);
 
-        if (findIter != (*myMapAccess).end())
+        if (findIter != myMap.end())
         {
-            int count = findIter->second;
+            int count = myMap[key];
             std::this_thread::sleep_for(std::chrono::nanoseconds(1));
-            (*myMapAccess)[key] = count + 1;
+            myMap[key] = count + 1;
         }
         else
         {
-            (*myMapAccess).emplace(key, 1);
+            myMap.emplace(key, 1);
         }
 
         // std::cout << "> Result: apple = " << myMap["apple"] << ", potato = " << myMap["potato"] << " - " << key << std::endl;
@@ -46,8 +46,7 @@ int main(int argc, char *argv[])
         thread.join();
     }
 
-    safe::WriteAccess<safe::Lockable<std::map<std::string, int>>> myMapAccess(myMap);
-    std::cout << "> Result: apple = " << (*myMapAccess)["apple"] << ", potato = " << (*myMapAccess)["potato"] << std::endl;
+    std::cout << "> Result: apple = " << myMap["apple"] << ", potato = " << myMap["potato"] << std::endl;
 
     return EXIT_SUCCESS;
 }
