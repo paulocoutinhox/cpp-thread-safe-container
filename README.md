@@ -8,6 +8,15 @@ Inside folders (like **01-simple**) we have the source of that sample, so you ca
 
 This sample show how we can simulate the problem (race condition problem).
 
+## Sample: 02-fluentcpp
+
+This sample show how we can solve the problem using ***Louis-Charles Caron*** solution called **safe** library.  
+
+References: 
+
+- https://www.fluentcpp.com/2019/04/26/how-to-write-safe-and-expressive-multi-threaded-code-in-cpp11/
+- https://github.com/LouisCharlesC/safe
+
 ## How to build and execute
 
 Run the following commands:
