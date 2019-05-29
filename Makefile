@@ -10,6 +10,7 @@ help:
 	@echo ""
 	@echo "Individual samples:"
 	@echo "- run-01-simple"
+	@echo "- run-02-fluentcpp"
 	@echo ""
 
 build:
@@ -20,12 +21,18 @@ build:
 		cmake --build . --config Release
 
 run:
-	@echo "> Running simple..."
-	make br-01-simple
+	@echo "> Running all samples..."
+	@-make run-01-simple
+	@-make run-02-fluentcpp
 
 format:
 	clang-format -style file -i 01-simple/src/main.cpp
+	clang-format -style file -i 02-fluentcpp/src/main.cpp
 
 run-01-simple:
 	@echo "> Running 01-simple..."
 	cd out/01-simple/ && time ./01-simple
+
+run-02-fluentcpp:
+	@echo "> Running 02-fluentcpp..."
+	cd out/02-fluentcpp/ && time ./02-fluentcpp

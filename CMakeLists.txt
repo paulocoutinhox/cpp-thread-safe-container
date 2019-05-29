@@ -1,5 +1,4 @@
-# Configurations
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.1)
 
-# Project: 01-Simple
 add_subdirectory(01-simple)
+add_subdirectory(02-fluentcpp)
