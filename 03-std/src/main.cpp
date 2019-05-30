@@ -33,7 +33,7 @@ std::thread createThread(const std::string &key)
 
 int main(int argc, char *argv[])
 {
-    int maxThreads = 500;
+    int maxThreads = 5000;
 
     for (int x = 0; x < maxThreads; x++)
     {

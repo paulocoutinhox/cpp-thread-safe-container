@@ -35,7 +35,7 @@ References:
 
 ## About the tests
 
-The working solution need output **apple** and **potato** counters with **500** each.
+The working solution need output **apple** and **potato** counters with **5000** each.
 
 The sample **01-simple** is the related problem.  
 
@@ -45,23 +45,23 @@ The others samples are possible solutions.
 > Running all samples...
 > Running 01-simple...
 cd out/01-simple/ && time ./01-simple
-> Result: apple = 326, potato = 332
+> Result: apple = 4623, potato = 4645
 
-real	0m0.040s
-user	0m0.016s
-sys	0m0.056s
+real	0m1.247s
+user	0m0.181s
+sys	0m1.532s
 > Running 02-fluentcpp...
 cd out/02-fluentcpp/ && time ./02-fluentcpp
-> Result: apple = 500, potato = 500
+> Result: apple = 5000, potato = 5000
 
-real	0m0.060s
-user	0m0.020s
-sys	0m0.065s
+real	0m1.199s
+user	0m0.186s
+sys	0m1.534s
 > Running 03-std...
 cd out/03-std/ && time ./03-std
-> Result: apple = 500, potato = 500
+> Result: apple = 5000, potato = 5000
 
-real	0m0.063s
-user	0m0.021s
-sys	0m0.067s
+real	0m1.196s
+user	0m0.188s
+sys	0m1.530s
 ```
