@@ -10,7 +10,7 @@ std::vector<std::thread> threadList;
 
 std::thread createThread(const std::string &key)
 {
-    return std::thread([&]() {
+    return std::thread([=]() {
         auto const findIter = myMap.find(key);
 
         if (findIter != myMap.end())

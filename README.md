@@ -37,26 +37,31 @@ References:
 
 The working solution need output **apple** and **potato** counters with **500** each.
 
-None solution is working until now.  
+The sample **01-simple** is the related problem.  
 
-The sample **01-simple** is the problem.  
-
-The sample **02-fluentcpp** don't solve or im doing something wrong. The **apple** and **potato** counters are wrong and on each run they show random values.  
+The others samples are possible solutions that is working.  
 
 ```
 > Running all samples...
 > Running 01-simple...
 cd out/01-simple/ && time ./01-simple
-> Result: apple = 144, potato = 411
+> Result: apple = 326, potato = 332
 
-real	0m0.033s
-user	0m0.015s
-sys	0m0.047s
+real	0m0.040s
+user	0m0.016s
+sys	0m0.056s
 > Running 02-fluentcpp...
 cd out/02-fluentcpp/ && time ./02-fluentcpp
-> Result: apple = 148, potato = 500
+> Result: apple = 500, potato = 500
 
-real	0m0.034s
-user	0m0.014s
-sys	0m0.042s
+real	0m0.060s
+user	0m0.020s
+sys	0m0.065s
+> Running 03-std...
+cd out/03-std/ && time ./03-std
+> Result: apple = 500, potato = 500
+
+real	0m0.063s
+user	0m0.021s
+sys	0m0.067s
 ```

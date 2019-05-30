@@ -11,7 +11,7 @@ std::vector<std::thread> threadList;
 
 std::thread createThread(const std::string &key)
 {
-    return std::thread([&]() {
+    return std::thread([=]() {
         safe::WriteAccess<safe::Lockable<std::map<std::string, int>>> myMapAccess(myMap);
 
         auto const findIter = (*myMapAccess).find(key);

@@ -11,7 +11,7 @@ std::mutex myMapMutex;
 
 std::thread createThread(const std::string &key)
 {
-    return std::thread([&]() {
+    return std::thread([=]() {
         std::lock_guard<std::mutex> lock(myMapMutex);
 
         auto const findIter = myMap.find(key);
