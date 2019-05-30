@@ -39,7 +39,7 @@ The working solution need output **apple** and **potato** counters with **500** 
 
 The sample **01-simple** is the related problem.  
 
-The others samples are possible solutions that is working.  
+The others samples are possible solutions.  
 
 ```
 > Running all samples...
