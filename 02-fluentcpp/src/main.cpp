@@ -46,8 +46,7 @@ int main(int argc, char *argv[])
         thread.join();
     }
 
-    safe::WriteAccess<safe::Lockable<std::map<std::string, int>>> myMapAccess(myMap);
-    std::cout << "> Result: apple = " << (*myMapAccess)["apple"] << ", potato = " << (*myMapAccess)["potato"] << std::endl;
+    std::cout << "> Result: apple = " << myMap.unsafe()["apple"] << ", potato = " << myMap.unsafe()["potato"] << std::endl;
 
     return EXIT_SUCCESS;
 }
